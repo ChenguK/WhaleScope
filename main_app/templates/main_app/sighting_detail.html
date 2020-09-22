@@ -12,8 +12,10 @@
         <p>Latitude: {{ object.latitude }}</p>
         <p>Longitude: {{ object.longitude }}</p>
         <p>Location: {{ object.location }}</p>
+        {% if user == sighting.user %}
             <a href="{% url 'sightings_update' object.id %}" class="edit-btn">Edit</a>
-            <a href="{% url 'sightings_delete' object.id %}" class="delete-btn">Delete</a>
+            <a href="{% url 'sightings_delete' object.id %}" class="delete-btn">Delete</a> 
+        {% endif %}
              <form class="like-btn" action="{% url 'like_sighting' object.id %}" method="post">
                 {% csrf_token %} 
                 <button type="submit" name="sighting_id" style="background-color:transparent; border: none;">
@@ -45,9 +47,11 @@
                 <div class="right" style = "text-transform:capitalize;" style="display: inline-flex; color: white;"><small>By {{ comment.user }}</small></div>
                 <div class="left" ><small>{{ comment.created_date }}</small></div>
                 <button  class="reply_button" id="reply_button_{{ comment.id }}" style=" background-color: transparent; border: none;">reply</button>
+                {% if user == comment.user %}
                 <button class="edit_button" id="edit_button_{{ comment.id }}">Edit</button>
                 <a class="delete-comment" href="{% url 'comments_delete' sighting.id comment.id %}">Delete</a>
-                <form action="{% url 'like_comment' sighting.id comment.id %}" method="post">
+                {% endif %}
+                <form action="{% url 'like_comment' sighting.id comment.id %}"  class="like-btn" method="post">
                     {% csrf_token %} 
                     <button type="submit" name="comment_id" style="background-color:transparent; border: none;">
                         {% if user in comment.likes.all %} 
@@ -60,6 +64,8 @@
                         {% else %}
                         {% endif %} 
                     </button>
+                </form>
+
             </div>
 
                                             
@@ -74,8 +80,10 @@
             {% for reply in comment.reply_set.all %}
             <div class="reply-containter">
                 <div style="display: inline-flex; color: white">{{ reply.text }}</div><br/>
-                <div class="right" style="display: inline-flex; color: white;">  By {{ reply.user }}</div>
+                <div  style="display: inline-flex; color: white;">  By {{ reply.user }}</div>
+                {% if user == reply.user %}
                 <a class="delete-comment" href="{% url 'replies_delete' sighting.id comment.id reply.id %}">Delete</a>
+                {% endif %}
                 {% endfor %}   
             </div>
                 <div id="edit_field_{{ comment.id }}" class="edit_field">
