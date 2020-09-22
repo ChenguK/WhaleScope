@@ -256,7 +256,3 @@ def like_comment(request, pk, comment_id):
                 comment.likes.add(request.user)
                 like = True
     return HttpResponseRedirect(reverse('detail', args=[str(pk)]))
-<<<<<<< HEAD
-=======
-
->>>>>>> master
