@@ -44,33 +44,31 @@
                     <h4>{{object.title.capitalize }} has {{ sighting.has_comments.count }} comment{{ sighting.has_comments.count|pluralize }}</h4>
                     {% for comment in sighting.comment_set.all %}
             
-                    <div>
-                        <div class="comment-container">
-                            <div style="display: inline-flex;">{{ comment.text }}</div>
-                            <div class="right" style = "text-transform:capitalize;" style="display: inline-flex; color: white;"><small>By {{ comment.user }}</small></div>
-                            <div class="left" ><small>{{ comment.created_date }}</small></div>
-                            <button  class="reply_button" id="reply_button_{{ comment.id }}" style=" background-color: transparent; border: none;">reply</button>
-                            {% if user == comment.user %}
-                            <button class="edit_button" id="edit_button_{{ comment.id }}">Edit</button>
-                            <a class="delete-comment" href="{% url 'comments_delete' sighting.id comment.id %}">Delete</a>
-                            {% endif %}
-                            <form action="{% url 'like_comment' sighting.id comment.id %}" method="post">
-                                {% csrf_token %} 
-                                <button type="submit" name="comment_id" style="background-color:transparent; border: none;">
-                                    {% if user in comment.likes.all %} 
-                                    <i style="color: #C0FDFF; border: none;" class='material-icons likes'>thumb_up</i>
-                                    {% else %}
-                                    <i style="color: lightgrey; border: none;" class='material-icons likes'>thumb_up</i>
-                                    {% endif %}
-                                    {% if comment.has_likes %}
-                                    <p style="margin-top: 0; color: white"><small>{{ comment.has_likes }} Like{{ comment.likes.count|pluralize }}</small></p>
-                                    {% else %}
-                                    {% endif %} 
-                                </button>
-                                
-                            </form>  
+        <div>
+            <div class="comment-container">
+                <div style="display: inline-flex;">{{ comment.text }}</div>
+                <div class="right" style = "text-transform:capitalize;" style="display: inline-flex; color: white;"><small>By {{ comment.user }}</small></div>
+                <div class="left" ><small>{{ comment.created_date }}</small></div>
+                <button  class="reply_button" id="reply_button_{{ comment.id }}" style=" background-color: transparent; border: none;">reply</button>
+                {% if user == comment.user %}
+                <button class="edit_button" id="edit_button_{{ comment.id }}">Edit</button>
+                <a class="delete-comment" href="{% url 'comments_delete' sighting.id comment.id %}">Delete</a>
+                {% endif %}
+                <form action="{% url 'like_comment' sighting.id comment.id %}" method="post">
+                    {% csrf_token %} 
+                    <button type="submit" name="comment_id" style="background-color:transparent; border: none;">
+                        {% if user in comment.likes.all %} 
+                        <i style="color: #C0FDFF; border: none;" class='material-icons likes'>thumb_up</i>
+                        {% else %}
+                        <i style="color: lightgrey; border: none;" class='material-icons likes'>thumb_up</i>
+                        {% endif %}
+                        {% if comment.has_likes %}
+                        <p style="margin-top: 0; color: white"><small>{{ comment.has_likes }} Like{{ comment.likes.count|pluralize }}</small></p>
+                        {% else %}
+                        {% endif %} 
+                    </button>
+            </div>
 
-                        </div>
                                             
                         <div class="left-align reply_form"  id="reply_form_{{ comment.id }}">
                             <form action="{% url 'add_reply' sighting.id comment.id %}" method="post">
@@ -81,7 +79,7 @@
                         </div>
                     
                         {% for reply in comment.reply_set.all %}
-                        <div class="reply-container">
+                        <div class="reply-containter">
                             <div style="display: inline-flex; color: white">{{ reply.text }}</div><br/>
                             <div class="right" style="display: inline-flex; color: white;">  By {{ reply.user }}</div>
                             {% if user == reply.user %}
