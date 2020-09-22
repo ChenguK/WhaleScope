@@ -13,12 +13,3 @@ $(".edit_button").click(function() {
       });
 });
 
-twttr.widgets.createTimeline(
-    {
-      sourceType: "list",
-      ownerScreenName: "Underwatertimes",
-      slug: "underwater-news"
-    },
-    document.getElementById("twitter")
-  );
-

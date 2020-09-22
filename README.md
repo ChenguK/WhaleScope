@@ -96,6 +96,8 @@ We attempted to pivot to a newsfeed, but there were too many other features that
 
 3) We originally planned to have a video playing on our landing page. Our backup option being animating pictures. Neither option worked well with the django framework. However, necessity being the mother of invention, we were able to find a gorgeous picture that brings our app to life.
 
+4) We also planned to expose our database as an api to be useful to scientists who want to expand their dataset of whale sightings.
+
 # Future Enhancements
 
 In the future, we would like to be able to build the webcrawler and aggregate news about whales and other underwater mammels in a sidebar.
