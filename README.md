@@ -98,10 +98,11 @@ We attempted to pivot to a newsfeed, but there were too many other features that
 
 # Future Enhancements
 
-In the future, we would like to be able to build the webcrawler and aggregate news about whales and other underwater mammels in a sidebar.
+In the future, we would like to be able to build the webcrawler and aggregate news about whales and other underwater mammels in a sidebar. 
+We also wanted to expose our database of sightings as an api to make them available to scientists looking to increase the data to which they have access.
 
 # Link to Live App
-Click here to see [WhaleScope]()
+Click here to see [WhaleScope](https://whalescope.herokuapp.com/)
 
 # Developers who worked on Version 1
 * Alejandra Patino - [GitHub](https://github.com/patinoale)
