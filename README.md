@@ -105,8 +105,8 @@ We also wanted to expose our database of sightings as an api to make them availa
 Click here to see [WhaleScope](https://whalescope.herokuapp.com/)
 
 # Related Links
-###### [Trello Board](https://trello.com/b/fZmPd3E2/whale-scope)
-###### [PitchDeck](https://docs.google.com/presentation/d/1RpJOFP4RFqihPw61lZqaCPEcUEvPSZsNJwj8RmpN4F8/edit#slide=id.g96bc8fef73_0_0)
+#### [Trello Board](https://trello.com/b/fZmPd3E2/whale-scope)
+#### [PitchDeck](https://docs.google.com/presentation/d/1RpJOFP4RFqihPw61lZqaCPEcUEvPSZsNJwj8RmpN4F8/edit#slide=id.g96bc8fef73_0_0)
 
 # Developers who worked on Version 1
 * Alejandra Patino - [GitHub](https://github.com/patinoale)
